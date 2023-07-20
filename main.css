@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+ul {
+    list-style: none;
+}
+
+.button-style {
+    background-color: #1E1E1E;
+    border: 1px dashed #FFFFFF;
+    color: #FFFFFF;
+}
+
+.button-style-two {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+body {
+    background-color: #000000;
+}
+
+/*Individual Styling*/
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+
+}
+
+.header {
+    width: 100vw;
+    height: 25vh;
+    background: url("bg2.png");
+    background: linear-gradient(to bottom, #1E1E1E, #000000);
+    border-bottom: 2px solid #FFFFFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1{
+    width: 50%;
+    animation-name: rps;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    font-size: 20px;
+    text-align: center;
+    line-height: 28px;
+    letter-spacing: 3px;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+@keyframes rps {
+    from {color: white;}
+    to {color: yellow;}
+  }
+
+.header img {
+    width: 100px;
+}
+
+.main {
+    width: 100vw;
+    height: 75vh;
+    background: url("bg.jpg");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    font-family: 'VT323', monospace;
+    padding: 2rem;
+    border: 1px solid #FFFFFF;
+    display: flex;
+    align-content: center;
+}
+
+.main .left{
+    width: 70vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .left div, .main .left ul {
+    display: flex;
+    justify-content: center;
+
+}
+.main img {
+    width: 100px;
+    height: 110px;
+}
+
+.main .left label {
+    font-size: 20px;
+}
+
+.main .left label input[type="text"]{
+    padding: 10px;
+}
+
+.main .left h2 {
+    font-size: 50px;
+}
+
+.main .left .player-box {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main .left .player-box .indiv-box {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main .left .player-box .indiv-box h4{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+}
+
+.main .left .player-box .indiv-box .player-choice-holder{
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 5px 5px;
+
+}
+
+.main .left ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main .left ul li{
+    font-size: 32px;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    transition: 500ms;
+}
+
+.main .left ul li:hover {
+    background-color: #1e1e1e3a;
+
+}
+
+.main .left .details {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+ 
+}
+
+.main .left .details span  {
+    font-size: 20px;
+
+}
+
+.main .left .details span button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.main .left .details span button:hover {
+    background: #ffffff3a;
+}
+
+.main .right {
+    width: 40vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+}
+
+.main .right .container-right {
+    margin: auto;
+    background-color: rgba(28, 27, 27, 77%);
+    max-width: 399px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.main .right .container-right h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main .right .container-right label {
+    width: 150px;
+    padding: 10px 40px;
+    text-align: center;
+}
+
+.main .right .container-right span {
+    display: inline-block;
+    width: 150px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.main .right .container-right h1 {
+    margin-top: 20px;
+    color: yellow;
+}
+
+.main .right .container-right button {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    font-family: 'Press Start 2P', sans-serif;
+    transition: 500ms;
+
+}
+
+.main .right .container-right button:hover {
+    background-color: #1e1e1ebb;
+}
+
+/* @media(max-width:800px)  {
+
+    .main {
+        row-gap: 15rem;
+        flex-wrap: wrap;
+    }
+
+    .main .left .main, .left.right {
+        width: 100vw;
+    }
+
+    
+} */
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="rock.png" id="rock-h">
+            <h1>WELCOME TO ROCK PAPER SCISSORS GAME</h1>
+            <img src="paper.png">
+        </div>
+        <div class="main">
+            <div class="left">
+                <label for="name" >Enter Nickname:
+                    <input type="text" class="button-style" id="name-el">
+                </label>
+                <h2 id="round-count">ROUND</h2>
+                <div class="player-box">
+                    <div class="indiv-box">
+                        <h4 id="player-name"></h4>
+                        <div class="player-choice-holder">
+                            <img id ="player-choice">
+                        </div>
+                    </div>
+                    <h1 id="results">----</h1>
+                    <div class="indiv-box">
+                        <h4 id="player-name">Computer</h4>
+                        <div class="player-choice-holder">
+                            <img id="computer-choice">
+                        </div>
+                    </div>
+                </div>
+                <ul class="choices">
+                    <li class="button-style choiceBtn">Rock</li>
+                    <li class="button-style choiceBtn">Paper</li>
+                    <li class="button-style choiceBtn">Scissors</li>
+                </ul>    
+                <div class="details">
+                    <span><span id="player-score">Your current Score:</span> <br><span id="computer-score"> Computer Score:</span></span>
+                    <span>
+                        <button class="button-style-two" onclick="gameStart()" id="sGame">start game</button>
+                        <button class="button-style-two">end game</button>
+                    </span>
+
+                </div>       
+            </div>
+            <div class="right">
+                <div class="container-right">
+                    <h2>Your Stats</h2>
+                    <label for="name">Nickname:&nbsp&nbsp&nbsp</label>
+                    <span class="button-style">0</span><br>
+                    <label for="name">Rounds:&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                    <span class="button-style">0</span><br>
+                    <label for="name">Final Score:</label>
+                    <span class="button-style">0</span><br>
+
+                    <h1 id="results">YOU WIN!!</h1>
+                    <button class="button-style-two">NEW GAME</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
