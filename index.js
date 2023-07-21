@@ -8,23 +8,24 @@ let playerPoints = document.getElementById("player-score");
 let computerPoints = document.getElementById("computer-score");
 let player;
 let computer;
-let count = 1;
+let count = 0;
 pScore = 0;
 cScore = 0;
 let playActive = false;
- 
+let playerName = document.getElementById("player-name");
 
 function gameStart(){
-    let playerName = document.getElementById("player-name");
-    let nickName = document.getElementById("name-el").value;
+let nickName = document.getElementById("name-el").value;
     if (nickName === '') {
         alert('Please enter your nickname to start the game.');
         return;
       }
-
     playerName.textContent = nickName;
     anotherRound();
-
+    playActive = true;
+    if (playActive === true) {
+      gStart = disable;
+    }
 }
 
 function anotherRound() {
@@ -78,12 +79,6 @@ function cChoice(){
   }
 }
 
-function  nextRound() {
-  round.textContent = "Round ";
-  count++;
-  round.textContent += count
-}
-
 function getRoundResult(playerChoice, computerChoice) {
   if (playerChoice === computer) {
     return 'Draw!';
@@ -103,7 +98,44 @@ function getRoundResult(playerChoice, computerChoice) {
 }
 
 function endGame() {
+    document.getElementById("right").style.display = "flex";
+    let nickName = document.getElementById("name-el").value;
+    let name = document.getElementById("name");
+    name.textContent = nickName;
+    document.getElementById("total-rounds").textContent = count - 1;
+    document.getElementById("f-score").textContent = pScore + " / " + (count - 1);  
+    count = 1;
 
+}
+
+function newGame() {
+  document.getElementById("right").style.display = "none";
+  //Resetting all variables to default
+// Reset game variables
+  playActive = false;
+  pScore = 0;
+  cScore = 0;
+
+  // Reset player and computer choices
+  playerChoice.src = "";
+  computerChoice.src = "";
+
+  // Reset game result text
+  result.textContent = "";
+
+  // Reset player and computer scores in the left section
+  playerPoints.textContent = "Your current Score: 0";
+  computerPoints.textContent = "Computer Score: 0";
+
+  // Reset round count in the left section
+  round.textContent = "ROUND " + count;
+
+  // Clear the player nickname input field
+  document.getElementById("name-el").value = "";
+
+  // Remove the click event listeners from choice buttons
+  choiceBtns.forEach(button => button.removeEventListener("click", playRound));
+  gameStart();
 }
 
 

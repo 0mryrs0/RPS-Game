@@ -44,23 +44,23 @@
                     <span><span id="player-score">Your current Score:</span> <br><span id="computer-score"> Computer Score:</span></span>
                     <span>
                         <button class="button-style-two" onclick="gameStart()" id="sGame">start game</button>
-                        <button class="button-style-two">end game</button>
+                        <button class="button-style-two" onclick="endGame()"id="eGame">end game</button>
                     </span>
 
                 </div>       
             </div>
-            <div class="right">
+            <div class="right" id="right">
                 <div class="container-right">
                     <h2>Your Stats</h2>
                     <label for="name">Nickname:&nbsp&nbsp&nbsp</label>
-                    <span class="button-style">0</span><br>
+                    <span class="button-style" id="name"></span><br>
                     <label for="name">Rounds:&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-                    <span class="button-style">0</span><br>
+                    <span class="button-style" id="total-rounds"></span><br>
                     <label for="name">Final Score:</label>
-                    <span class="button-style">0</span><br>
+                    <span class="button-style" id="f-score"></span><br>
 
-                    <h1 id="results">YOU WIN!!</h1>
-                    <button class="button-style-two">NEW GAME</button>
+                    <h1 id="f-result">YOU WIN!!</h1>
+                    <button class="button-style-two" onclick="newGame()">NEW GAME</button>
                 </div>
             </div>
 
