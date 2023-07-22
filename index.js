@@ -8,63 +8,66 @@ let playerPoints = document.getElementById("player-score");
 let computerPoints = document.getElementById("computer-score");
 let player;
 let computer;
-let count = 0;
+let count = 1;
 pScore = 0;
 cScore = 0;
 let playActive = false;
 let playerName = document.getElementById("player-name");
 
 function gameStart(){
-let nickName = document.getElementById("name-el").value;
+    let nickName = document.getElementById("name-el").value;
     if (nickName === '') {
         alert('Please enter your nickname to start the game.');
         return;
       }
     playerName.textContent = nickName;
-    anotherRound();
+    playRound();
+
     playActive = true;
     if (playActive === true) {
       gStart = disable;
     }
+
 }
 
-function anotherRound() {
-  choiceBtns.forEach(button => button.addEventListener("click", () => {
+function playRound() {
+  // Remove existing event listeners from the round buttons
+  choiceBtns.forEach(button => button.removeEventListener("click", rpsButtonClick));
 
-    player = button.textContent;
-    console.log(player);
-    if (player === "Rock"){
-      playerChoice.src = "rock.png";
-    }
+  // Add new event listener to the round buttons
+  choiceBtns.forEach(button => button.addEventListener("click", rpsButtonClick));
 
-    else if (player === "Paper"){
-      playerChoice.src = "paper.png";
-    }
-
-    else if (player === "Scissors"){
-      playerChoice.src = "scissors.png";
-    }
-
-    computerChoice.src = cChoice();
-    result.textContent = getRoundResult(player, computer);
-    if (getRoundResult(player, computer) === "WIN!") {
-      pScore++;
-      playerPoints.textContent = "Your current Score: " + pScore;
-
-    }
-    else if (getRoundResult(player, computer) === "LOSE!") {
-      cScore++;
-      computerPoints.textContent = "Computer Score: " + cScore;
-    }
-    count++;
-    round.textContent = "ROUND "  + count;
-  
-}));
 }
+
+function rpsButtonClick() {
+  player = this.textContent; // 'this' refers to the clicked button
+  console.log(player);
+  if (player === "Rock") {
+    playerChoice.src = "rock.png";
+  } else if (player === "Paper") {
+    playerChoice.src = "paper.png";
+  } else if (player === "Scissors") {
+    playerChoice.src = "scissors.png";
+  }
+
+  computerChoice.src = cChoice();
+  result.textContent = getRoundResult(player, computer);
+  if (getRoundResult(player, computer) === "WIN!") {
+    pScore++;
+    playerPoints.textContent = "Your current Score: " + pScore;
+  } else if (getRoundResult(player, computer) === "LOSE!") {
+    cScore++;
+    computerPoints.textContent = "Computer Score: " + cScore;
+  }
+
+  count++;
+  round.textContent = "ROUND " + count;
+}
+
 
 function cChoice(){
-  const rps = ["Rock", "Paper", "Scissors"]
-  computer = rps[(Math.floor(Math.random() * rps.length))]
+  const rps = ["Rock", "Paper", "Scissors"];
+  computer = rps[(Math.floor(Math.random() * rps.length))];
   console.log(computer);
   if (computer === "Rock") {
     return "rock.png";
@@ -95,6 +98,7 @@ function getRoundResult(playerChoice, computerChoice) {
   } else if ((playerChoice == "Rock") && (computerChoice == "Paper")) {
     return "LOSE!";
   }
+
 }
 
 function endGame() {
@@ -104,7 +108,17 @@ function endGame() {
     name.textContent = nickName;
     document.getElementById("total-rounds").textContent = count - 1;
     document.getElementById("f-score").textContent = pScore + " / " + (count - 1);  
-    count = 1;
+
+    //Checking final result
+    if (pScore > cScore){
+      document.getElementById("f-result").textContent = "YOU WIN";
+    }
+    else if (pScore < cScore) {
+      document.getElementById("f-result").textContent = "YOU LOSE";
+    }
+    else {
+      document.getElementById("f-result").textContent = "IT'S A TIE";
+    }
 
 }
 
@@ -112,9 +126,10 @@ function newGame() {
   document.getElementById("right").style.display = "none";
   //Resetting all variables to default
 // Reset game variables
-  playActive = false;
   pScore = 0;
   cScore = 0;
+  count = 1;
+  round.textContent = "Round ";
 
   // Reset player and computer choices
   playerChoice.src = "";
@@ -127,16 +142,8 @@ function newGame() {
   playerPoints.textContent = "Your current Score: 0";
   computerPoints.textContent = "Computer Score: 0";
 
-  // Reset round count in the left section
-  round.textContent = "ROUND " + count;
-
-  // Clear the player nickname input field
-  document.getElementById("name-el").value = "";
-
-  // Remove the click event listeners from choice buttons
-  choiceBtns.forEach(button => button.removeEventListener("click", playRound));
-  gameStart();
 }
+
 
 
 
