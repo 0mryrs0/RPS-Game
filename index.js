@@ -41,7 +41,6 @@ function playRound() {
 
 function rpsButtonClick() {
   player = this.textContent; // 'this' refers to the clicked button
-  console.log(player);
   if (player === "Rock") {
     playerChoice.src = "rock.png";
   } else if (player === "Paper") {
@@ -68,7 +67,6 @@ function rpsButtonClick() {
 function cChoice(){
   const rps = ["Rock", "Paper", "Scissors"];
   computer = rps[(Math.floor(Math.random() * rps.length))];
-  console.log(computer);
   if (computer === "Rock") {
     return "rock.png";
   }
@@ -85,19 +83,11 @@ function cChoice(){
 function getRoundResult(playerChoice, computerChoice) {
   if (playerChoice === computer) {
     return 'Draw!';
-  } else if ((playerChoice == "Rock") && (computerChoice== "Scissors")) {
+  } else if ((playerChoice == "Rock") && (computerChoice== "Scissors") || (playerChoice == "Paper") && (computerChoice == "Rock" || (playerChoice == "Scissors") && (computerChoice == "Paper"))) {
     return "WIN!";
-  } else if ((playerChoice == "Paper") && (computerChoice == "Rock")) {
-    return "WIN!";
-  } else if ((playerChoice == "Scissors") && (computerChoice == "Paper")) {
-    return "WIN!";
-  } else if ((playerChoice == "Paper") && (computerChoice== "Scissors")) {
+  } else  {
     return "LOSE!";
-  } else if ((playerChoice == "Scissors") && (computerChoice == "Rock")) {
-    return "LOSE!";
-  } else if ((playerChoice == "Rock") && (computerChoice == "Paper")) {
-    return "LOSE!";
-  }
+  } 
 
 }
 
@@ -124,7 +114,6 @@ function endGame() {
 
 function newGame() {
   document.getElementById("right").style.display = "none";
-  //Resetting all variables to default
 // Reset game variables
   pScore = 0;
   cScore = 0;
